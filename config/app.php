@@ -121,7 +121,12 @@ return [
     |
     */
 
-    'providers' => [
+    'providers' => array(
+
+        /*
+         * Debugbar
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -151,12 +156,12 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        p3\Providers\AppServiceProvider::class,
+        p3\Providers\AuthServiceProvider::class,
+        p3\Providers\EventServiceProvider::class,
+        p3\Providers\RouteServiceProvider::class,
 
-    ],
+    ),
 
     /*
     |--------------------------------------------------------------------------
@@ -180,6 +185,7 @@ return [
         'Cookie'    => Illuminate\Support\Facades\Cookie::class,
         'Crypt'     => Illuminate\Support\Facades\Crypt::class,
         'DB'        => Illuminate\Support\Facades\DB::class,
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Eloquent'  => Illuminate\Database\Eloquent\Model::class,
         'Event'     => Illuminate\Support\Facades\Event::class,
         'File'      => Illuminate\Support\Facades\File::class,

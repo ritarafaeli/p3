@@ -7,7 +7,14 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class Controller extends BaseController
+class MainController extends Controller
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function index(){
+        /*$items = array('items' =>
+            ['test1', 'test2', 'test3']
+        );
+        //dd($items);
+        \Log::debug($items);*/
+        return view('welcome');
+    }
 }

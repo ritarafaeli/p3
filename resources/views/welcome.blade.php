@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+<html lang="en-us" ng-app="myApp">
+<head>
+    <title>Margarita Rafaeli - Developer's Best Friend</title>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <style>
+        html, body, input, select, textarea
+        {
+            font-size: 1.05em;
+        }
+    </style>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <!-- angularjs -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-route.min.js"></script>
+    <script src="../../public/app/lib/app.js"></script>
+</head>
+<body>
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+<div class="panel panel-default">
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+    <div class="panel-heading">
+        <h1>Margarita Rafaeli</h1>
+        <p>Dynamic Web Applications | Spring 2016 | Project 3</p>
+    </div>
+    <div class="panel-body" ng-controller="mainController" ng-init="scrapeWords()">
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+        <h3>Developer's Best Friend</h3>
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+        <p>To be updated..</p>
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
+    </div>
+    <div class="panel-footer clearfix">
+        <div class="pull-right">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dwa15.com/Home"> DWA</a></li>
+                <li><a href="https://laravel.com/"> Laravel</a></li>
+                <li><a href="https://angularjs.org/"> AngularJS</a></li>
+            </ul>
         </div>
-    </body>
+    </div>
+</div>
+
+</body>
 </html>
