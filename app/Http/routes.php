@@ -20,6 +20,17 @@ Route::get('/', ['as' => 'home',
     'uses' => 'MainController@index']
 );
 
+Route::get('loremipsum',
+    ['as' => 'loremipsum', 'uses' => 'LoremIpsumController@getText']);
+Route::post('loremipsum',
+    ['as' => 'loremipsum_post', 'uses' => 'LoremIpsumController@postFormInput']);
+
+Route::get('randomuser',
+    ['as' => 'randomuser', 'uses' => 'RandomUserController@getUser']);
+Route::post('randomuser',
+    ['as' => 'randomuser_post', 'uses' => 'RandomUserController@postFormInput']);
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
