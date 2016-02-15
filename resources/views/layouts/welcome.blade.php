@@ -11,10 +11,9 @@
         }
     </style>
 
-    <!-- angularjs -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-route.min.js"></script>
-    <script src="../../../public/app/lib/app.js"></script>
+    <!--AngularJS-->
+    @extends('angular')
+
 </head>
 <body>
 

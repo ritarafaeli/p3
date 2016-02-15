@@ -1,17 +1,13 @@
-@extends('layouts.welcome')
 
+@extends('layouts.welcome')
 @section('content')
     <h1>Lorem Ipsum</h1>
 
-    <form method='POST' action='loremipsum/post'>
+    <form role="form" ng-submit="generateParagraphs()">
         <input type='hidden' name='_token' value='{{ csrf_token() }}'>
-        <input type='text' name='numParagraphs'>
-        <input type='submit' value='Generate'>
+        <input type='text' name='numParagraphs' ng-model="numParagraphs">
+        <button type='submit'>Generate</button>
     </form>
 
-    @if(isset($paragraphs))
-        <p> {!! $paragraphs !!}</p>
-    @else
-        <p>Paragraph(s) To Display Here</p>
-    @endif
+    <p>@{{ paragraphs }}</p>
 @stop

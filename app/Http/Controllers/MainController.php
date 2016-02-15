@@ -10,11 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class MainController extends Controller
 {
     public function index(){
-        /*$items = array('items' =>
-            ['test1', 'test2', 'test3']
-        );
-        //dd($items);
-        \Log::debug($items);*/
-        return view('welcome');
+
+        return view('layouts.welcome');
     }
 }

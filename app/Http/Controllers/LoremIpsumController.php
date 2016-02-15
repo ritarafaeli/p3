@@ -30,7 +30,8 @@ class LoremIpsumController extends Controller
         //replace newline with html line breaks
         $paragraphs = str_replace("\n", "<br/>", $paragraphs);
 
-        //send the paragraph string back to the loremipsum view
-        return view('loremipsum')->with('paragraphs',$paragraphs);
+        return $paragraphs; //TODO: make the line breaks appear as HTML
+        //return Response::json($paragraphs); //not sure how to get this to work
+        //return view('loremipsum')->with('paragraphs',$paragraphs);
     }
 }
