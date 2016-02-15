@@ -14,7 +14,7 @@
     <!-- angularjs -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular-route.min.js"></script>
-    <script src="../../public/app/lib/app.js"></script>
+    <script src="../../../public/app/lib/app.js"></script>
 </head>
 <body>
 
@@ -24,11 +24,13 @@
         <h1>Margarita Rafaeli</h1>
         <p>Dynamic Web Applications | Spring 2016 | Project 3</p>
     </div>
-    <div class="panel-body" ng-controller="mainController" ng-init="scrapeWords()">
+    <div class="panel-body" ng-controller="mainController">
 
         <h3>Developer's Best Friend</h3>
 
-        <p>To be updated..</p>
+        <div>
+            @yield('content')
+        </div>
 
     </div>
     <div class="panel-footer clearfix">
