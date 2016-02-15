@@ -24,7 +24,7 @@ class LoremIpsumFormRequest extends Request
     public function rules()
     {
         return [
-            'num' => 'required|integer' //specifies number of paragraphs to generate
+            'numParagraphs' => 'required|integer' //specifies number of paragraphs to generate
         ];
     }
 }
