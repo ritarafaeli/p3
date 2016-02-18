@@ -26,30 +26,28 @@ class RandomUserController extends Controller
 
         //retrieve form input
         $numUsers= $request->input('num');
-        Log::info($request->input('birthday'));
         $isBirthday= $request->input('birthday') != null ? $request->input('birthday') : false;
         $isProfile= $request->input('profile') != null ? $request->input('profile') : false;
 
         //create random user array
         $randomUsers = array();
 
-
         //use 3rd party package to generate users
         $faker = Faker::create();
+
+        //for each user, create an area, add value, based on user form input, and add array to array of users
         foreach(range(1,$numUsers) as $i){
-            $entry = array();
-            array_push($entry, "Name: " . $faker->name);
+            $user= array();
+            $user["name"] = $faker->name;
+            $user["birthday"] = $isBirthday ? $faker->dateTimeThisCentury->format("Y-M-d") : "";
+            $user["profile"] = $isProfile ? $faker->text : "";
 
-            $birthday = $isBirthday ? "Birthday: " . $faker->dateTimeThisCentury->format("Y-M-d") : "Birthday: ";
-            array_push($entry, $birthday);
-
-            $profile = $isProfile ? "Profile: " . $faker->text : "Profile: ";
-            array_push($entry, $profile);
-
-
-            array_push($randomUsers, $entry);
+            array_push($randomUsers, $user);
         }
-        return $randomUsers;
+
+       //encode the array into json and return
+        return json_encode($randomUsers);
+
         //return view('randomuser')->with('randomUsers',$randomUsers);
     }
 }

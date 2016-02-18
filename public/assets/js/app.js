@@ -3,6 +3,7 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams', '$http', function($scope, $location, $log, $routeParams, $http) {
 
+    $scope.num = 3;
     $scope.status;
     $scope.paragraphs = "";
     $scope.users;
@@ -32,6 +33,8 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
             .success(function(response) {
                 $scope.users = response;
                 console.log("success: " + $scope.users);
+                console.log("response: " + response);
+
             }).error(function(response) {
                 $scope.status = response;
                 console.log("failed: " + $scope.status);
