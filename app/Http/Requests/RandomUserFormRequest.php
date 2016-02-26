@@ -24,7 +24,7 @@ class RandomUserFormRequest extends Request
     public function rules()
     {
         return [
-            'num' => 'required|integer', //specifies number of users to generate
+            'num' => 'required|integer|min:1|max:500', //specifies number of users to generate
             'birthday' => 'boolean',
             'profile' => 'boolean'
         ];

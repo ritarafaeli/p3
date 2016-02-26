@@ -21,7 +21,9 @@ class RandomUserController extends Controller
 
         //form validation on request object
         $this->validate($request, [
-            'num' => 'required|integer', //specifies number of users to generate
+            'num' => 'required|integer|min:1|max:500', //specifies number of users to generate
+            'birthday' => 'boolean',
+            'profile' => 'boolean'
         ]);
 
         //retrieve form input

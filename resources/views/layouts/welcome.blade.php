@@ -17,30 +17,41 @@
 </head>
 <body>
 
-<div class="panel panel-default">
+<div class="panel panel-default" ng-controller="mainController">
 
-    <div class="panel-heading">
-        <h1>Margarita Rafaeli</h1>
-        <p>Dynamic Web Applications | Spring 2016 | Project 3</p>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">Margarita Rafaeli | Developer's Best Friend</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{active:isSet(1)}"><a ng-click="setTab(1)">Lorem Ipsum</a></li>
+                    <li ng-class="{active:isSet(2)}"><a ng-click="setTab(2)">Random User</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="panel-body" ng-controller="mainController">
 
+    <div class="container body-content">
         <h3>Developer's Best Friend</h3>
 
-        <div>
-            @yield('content')
+        <div ng-show="isSet(1)">
+            @include('includes.loremipsum')
+        </div>
+
+        <div ng-show="isSet(2)">
+            @include('includes.randomuser')
         </div>
 
     </div>
-    <div class="panel-footer clearfix">
-        <div class="pull-right">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://dwa15.com/Home"> DWA</a></li>
-                <li><a href="https://laravel.com/"> Laravel</a></li>
-                <li><a href="https://angularjs.org/"> AngularJS</a></li>
-            </ul>
-        </div>
-    </div>
+
 </div>
 
 </body>

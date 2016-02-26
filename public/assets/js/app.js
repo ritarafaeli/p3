@@ -41,4 +41,13 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
             }
         );
     }
+
+    $scope.tab = 1;
+    $scope.setTab = function (tabId) {
+        this.tab = tabId;
+    };
+    $scope.isSet = function (tabId) {
+        return this.tab === tabId;
+    };
+
 }]);
