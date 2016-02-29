@@ -1,6 +1,27 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 
 
+myApp.config(function ($routeProvider) {
+    
+    $routeProvider    
+    .when('/', {
+        templateUrl: 'layouts/welcome.blade.php',
+        controller: 'mainController'
+    })
+    
+    .when('/loremipsum', {
+        templateUrl: 'includes/loremipsum.blade.php',
+        controller: 'mainController'
+    })
+    
+    .when('/randomuser', {
+        templateUrl: 'includes/randomuser.blade.php',
+        controller: 'mainController'
+    })
+    
+});
+
+
 myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams', '$http', function($scope, $location, $log, $routeParams, $http) {
 
     $scope.num = 3;
