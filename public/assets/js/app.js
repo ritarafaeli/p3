@@ -1,27 +1,6 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 
 
-myApp.config(function ($routeProvider) {
-    
-    $routeProvider    
-    .when('/', {
-        templateUrl: 'layouts/welcome.blade.php',
-        controller: 'mainController'
-    })
-    
-    .when('/loremipsum', {
-        templateUrl: 'includes/loremipsum.blade.php',
-        controller: 'mainController'
-    })
-    
-    .when('/randomuser', {
-        templateUrl: 'includes/randomuser.blade.php',
-        controller: 'mainController'
-    })
-    
-});
-
-
 myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams', '$http', function($scope, $location, $log, $routeParams, $http) {
 
     $scope.num = 3;
@@ -32,8 +11,8 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
     $scope.generateParagraphs = function() {
         console.log('generate paragraphs');
         $http.post('loremipsum/post', {
-            numParagraphs: $scope.numParagraphs
-        })
+                numParagraphs: $scope.numParagraphs
+            })
             .success(function(response) {
                 $scope.paragraphs = response;
                 console.log("success: " + $scope.paragraphs);

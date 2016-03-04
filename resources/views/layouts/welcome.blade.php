@@ -34,9 +34,6 @@
                 <ul class="nav navbar-nav">
                     <li ng-class="{active:isSet(1)}"><a ng-click="setTab(1)">Lorem Ipsum</a></li>
                     <li ng-class="{active:isSet(2)}"><a ng-click="setTab(2)">Random User</a></li>
-                    
-                    <li ng-class="{active:isSet(1)}"><a ng-click="setTab(1)" href="#/loremipsum">Lorem Ipsum Test</a></li>
-                    <li ng-class="{active:isSet(2)}"><a ng-click="setTab(2)" href="#/randomuser">Random User Test</a></li>
                 </ul>
             </div>
         </div>
@@ -45,9 +42,13 @@
     <div class="container body-content">
         <h3>Developer's Best Friend</h3>
 
-        <div class="container">
-            <div ng-view></div>            
-		</div>
+        <div ng-show="isSet(1)">
+            @include('includes.loremipsum')
+        </div>
+
+        <div ng-show="isSet(2)">
+            @include('includes.randomuser')
+        </div>
 
     </div>
 
