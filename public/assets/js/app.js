@@ -3,11 +3,12 @@ var myApp = angular.module('myApp', ['ngRoute']);
 
 myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams', '$http', function($scope, $location, $log, $routeParams, $http) {
 
-    $scope.num = 3;
-    $scope.status;
-    $scope.paragraphs = "";
-    $scope.users;
+    $scope.num = 3; //number of randomusers to generate, default set to 3
+    $scope.status; //error response from post requests
+    $scope.paragraphs = ""; //loremipsum text to be displayed
+    $scope.users; //randomuser json
 
+    //sends post request to the loremipsum route
     $scope.generateParagraphs = function() {
         console.log('generate paragraphs');
         $http.post('loremipsum/post', {
@@ -23,6 +24,7 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
         );
     }
 
+    //sends post request to the randomuser route
     $scope.generateUsers = function(){
         console.log('generate users');
         $http.post('randomuser/post', {
@@ -42,10 +44,15 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
         );
     }
 
-    $scope.tab = 1;
+    //default tab is set to the welcome blurb
+    $scope.tab = 0;
+
+    //sets the selected tab
     $scope.setTab = function (tabId) {
         this.tab = tabId;
     };
+
+    //boolean returns whether that tab is selected
     $scope.isSet = function (tabId) {
         return this.tab === tabId;
     };

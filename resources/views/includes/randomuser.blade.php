@@ -19,7 +19,7 @@
         text-align: left;
     }
 </style>
-
+<p>Please fill out the below form to generate random user data:</p>
 <form role="form" ng-submit="generateUsers()">
     <input type='hidden' name='_token' value='{{ csrf_token() }}'>
     Number of Users: <input type='number' name='num' ng-model='num'><br/>

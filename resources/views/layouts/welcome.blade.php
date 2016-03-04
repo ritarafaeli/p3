@@ -28,7 +28,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand">Margarita Rafaeli | Developer's Best Friend</a>
+                <a ng-click="setTab(0)" class="navbar-brand">Margarita Rafaeli | Developer's Best Friend</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -42,10 +42,14 @@
     <div class="container body-content">
         <h3>Developer's Best Friend</h3>
 
+        <div ng-show="isSet(0)">
+            <p>Welcome to Developer's Best Friend. Here you will find some cool tools that generate random data.</p>
+            <p>There is a Lorem Ipsum Generator, which generates filler text, allowing you to specify the number of paragraphs to generate. For more information on Lorem Ipsum, click <a href="https://en.wikipedia.org/wiki/Lorem_ipsum" target="_blank">here</a>.</p>
+            <p>Another tool for your disposal is a Random User Generator, which generates random user data, such as name, birthday, profile blurb, depending on the criteria selected.</p>
+        </div>
         <div ng-show="isSet(1)">
             @include('includes.loremipsum')
         </div>
-
         <div ng-show="isSet(2)">
             @include('includes.randomuser')
         </div>
