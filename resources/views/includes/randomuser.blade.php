@@ -1,4 +1,11 @@
 <style type="text/css">
+    .error {
+        color:red;
+        margin:0;
+        margin-top:5px;
+        padding:0;
+        list-style-type:none;
+    }
     table {
         font-family:Arial;
         color:#666;
@@ -22,13 +29,24 @@
 <p>Please fill out the below form to generate random user data:</p>
 <form role="form" ng-submit="generateUsers()">
     <input type='hidden' name='_token' value='{{ csrf_token() }}'>
-    Number of Users: <input type='number' name='num' ng-model='num'>  @{{ errors.num[0] }}<br/>
-    <label>Birthday: <input type='checkbox' name='birthday' ng-model='birthday'></label><br/>
-    <label>Profile: <input type='checkbox' name='profile' ng-model='profile'></label><br/>
+    <div class='form-group'>
+        <label>Number of Users:</label>
+        <input type='number' name='num' ng-model='num'>  <div class='error'>@{{ errors.num[0] }}</div>
+    </div>
+    <div class='form-group'>
+        <label>Birthday:
+            <input type='checkbox' name='birthday' ng-model='birthday'>
+        </label>
+    </div>
+    <div class='form-group'>
+        <label>Profile:
+            <input type='checkbox' name='profile' ng-model='profile'>
+        </label>
+    </div>
     <button type='submit'>Generate</button>
 </form>
 
-<div ng-show="errors">
+<div class='error' ng-show="errors">
     Please correct the form errors above and try again
 </div>
 
