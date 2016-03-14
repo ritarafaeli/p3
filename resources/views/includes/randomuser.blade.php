@@ -22,11 +22,15 @@
 <p>Please fill out the below form to generate random user data:</p>
 <form role="form" ng-submit="generateUsers()">
     <input type='hidden' name='_token' value='{{ csrf_token() }}'>
-    Number of Users: <input type='number' name='num' ng-model='num'><br/>
+    Number of Users: <input type='number' name='num' ng-model='num'>  @{{ errors.num[0] }}<br/>
     <label>Birthday: <input type='checkbox' name='birthday' ng-model='birthday'></label><br/>
     <label>Profile: <input type='checkbox' name='profile' ng-model='profile'></label><br/>
     <button type='submit'>Generate</button>
 </form>
+
+<div ng-show="errors">
+    Please correct the form errors above and try again
+</div>
 
 <div ng-repeat="user in users">
     <!--<div class="table-responsive">-->

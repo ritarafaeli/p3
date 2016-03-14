@@ -4,13 +4,15 @@ var myApp = angular.module('myApp', ['ngRoute']);
 myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams', '$http', function($scope, $location, $log, $routeParams, $http) {
 
     $scope.num = 3; //number of randomusers to generate, default set to 3
-    $scope.status; //error response from post requests
+    $scope.errors; //error response from random user post requests
+    $scope.errorsLipsum; //error response from lipsum post requests
     $scope.paragraphs = ""; //loremipsum text to be displayed
     $scope.users; //randomuser json
 
     //sends post request to the loremipsum route
     $scope.generateParagraphs = function() {
         console.log('generate paragraphs');
+        $scope.errorsLipsum = "";
         $http.post('loremipsum/post', {
                 numParagraphs: $scope.numParagraphs
             })
@@ -18,8 +20,8 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
                 $scope.paragraphs = response;
                 console.log("success: " + $scope.paragraphs);
             }).error(function(response) {
-                $scope.status = response;
-                console.log("failed: " + $scope.status);
+                $scope.errorsLipsum = response;
+                console.log("failed: " + $scope.errors);
             }
         );
     }
@@ -27,6 +29,7 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
     //sends post request to the randomuser route
     $scope.generateUsers = function(){
         console.log('generate users');
+        $scope.errors = "";
         $http.post('randomuser/post', {
                 num : $scope.num,
                 birthday : $scope.birthday,
@@ -38,8 +41,8 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
                 console.log("response: " + response);
 
             }).error(function(response) {
-                $scope.status = response;
-                console.log("failed: " + $scope.status);
+                $scope.errors = response;
+                console.log("failed: " + $scope.errors);
             }
         );
     }
