@@ -1,10 +1,6 @@
 <style type="text/css">
     .error {
         color:red;
-        margin:0;
-        margin-top:5px;
-        padding:0;
-        list-style-type:none;
     }
     table {
         font-family:Arial;
@@ -43,11 +39,23 @@
             <input type='checkbox' name='profile' ng-model='profile'>
         </label>
     </div>
+    <div class='form-group'>
+        <label>Email:
+            <input type='checkbox' name='email' ng-model='email'>
+        </label>
+    </div>
     <button type='submit'>Generate</button>
 </form>
 
 <div class='error' ng-show="errors">
     Please correct the form errors above and try again
+</div>
+
+<div ng-show="false"> <!-- users != null -->
+    <form role="form" ng-submit="downloadRandomUsers()">
+        <input type="hidden" value="@{{ $scope.users }}">
+        <button type='submit'>Download XLS</button>
+    </form>
 </div>
 
 <div ng-repeat="user in users">
@@ -64,6 +72,10 @@
             <tr ng-show="user.profile">
                 <td>Profile</td>
                 <td>@{{ user.profile }}</td>
+            </tr>
+            <tr ng-show="user.email">
+                <td>Email</td>
+                <td>@{{ user.email }}</td>
             </tr>
         </table>
     <!--</div>-->

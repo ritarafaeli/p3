@@ -8,4 +8,6 @@
     Please correct the form errors above and try again
 </div>
 
-<p>@{{ paragraphs }}</p>
+<div ng-repeat="paragraph in paragraphs">
+    <p>@{{ paragraph }}</p>
+</div>

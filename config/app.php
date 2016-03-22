@@ -129,7 +129,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         'Magyarjeti\LaravelLipsum\LipsumServiceProvider',
-
+        'Maatwebsite\Excel\ExcelServiceProvider',
         /*
          * Laravel Framework Service Providers...
          */
@@ -190,6 +190,7 @@ return [
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Eloquent'  => Illuminate\Database\Eloquent\Model::class,
         'Event'     => Illuminate\Support\Facades\Event::class,
+        'Excel'     => 'Maatwebsite\Excel\Facades\Excel',
         'Form'      => Collective\Html\FormFacade::class,
         'File'      => Illuminate\Support\Facades\File::class,
         'Gate'      => Illuminate\Support\Facades\Gate::class,

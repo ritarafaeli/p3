@@ -25,12 +25,11 @@ class LoremIpsumController extends Controller
         $numParagraphs = $request->input('numParagraphs');
 
         //use 3rd party package to generate lorem ipsum paragraphs
-        $paragraphs = \Lipsum::short()->text($numParagraphs);
+        for($i=0 ; $i<$numParagraphs ; $i++) {
+            $paragraphs[$i] = \Lipsum::short()->text(1);
+        }
 
-        //replace newline with html line breaks
-        $paragraphs = str_replace("\n", "<br/>", $paragraphs);
-
-        return $paragraphs; //TODO: make the line breaks appear as HTML
+        return $paragraphs;
         //return Response::json($paragraphs); //not sure how to get this to work
         //return view('loremipsum')->with('paragraphs',$paragraphs);
     }

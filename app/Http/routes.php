@@ -10,7 +10,7 @@ Route::post('loremipsum/post', 'LoremIpsumController@postFormInput');
 
 Route::get('randomuser', 'RandomUserController@getUser');
 Route::post('randomuser/post', 'RandomUserController@postFormInput');
-
+Route::post('randomuser/download', 'RandomUserController@download');
 
 /*
 |--------------------------------------------------------------------------

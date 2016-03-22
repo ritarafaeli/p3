@@ -26,7 +26,8 @@ class RandomUserFormRequest extends Request
         return [
             'num' => 'required|integer|min:1|max:500', //specifies number of users to generate
             'birthday' => 'boolean',
-            'profile' => 'boolean'
+            'profile' => 'boolean',
+            'email' => 'boolean',
         ];
     }
 }
