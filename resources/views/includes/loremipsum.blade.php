@@ -1,11 +1,11 @@
 <div class="panel-group panel-primary">
     <div class="panel-heading">Lipsum Form</div>
     <div class="panel-body">
-        <div class='alert alert-danger' role="alert" ng-show="errorsLipsum">
+        <div class='alert alert-danger' ng-show="errorsLipsum">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             Please correct the form errors below and try again.
         </div>
-        <form role="form" ng-submit="generateParagraphs()">
+        <form ng-submit="generateParagraphs()">
             <input type='hidden' name='_token' value='{{ csrf_token() }}'>
             <div class='form-group has-error' ng-class="$errorsLipsum.numParagraphs[0] != '' ? 'has-error' : 'has-error'">
                 <label>Number of Paragraphs:</label>
@@ -20,7 +20,7 @@
 <div ng-show="paragraphs" class="panel-group panel-info">
     <div class="panel-heading">Paragraphs</div>
     <div class="panel-body">
-        <form role="form" ng-submit="downloadLipsumParagraphs()">
+        <form ng-submit="downloadLipsumParagraphs()">
             <button type='submit' class="btn">
                 <span class="glyphicon glyphicon-save-file"></span> CSV
             </button>

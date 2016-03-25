@@ -7,11 +7,13 @@
     <!--AngularJS-->
     @extends('angular')
     <!-- bootstrap -->
-    @extends('bootstrap')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="panel panel-default" ng-controller="mainController">
-    <nav class = "navbar navbar-inverse" role = "navigation">
+    <nav class = "navbar navbar-inverse">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#dropdown">
                 <span class="sr-only">Toggle navigation</span>
@@ -40,6 +42,15 @@
         <div ng-show="isSet(2)">
             @include('includes.randomuser')
         </div>
+
+    </div>
+
+    <div class="container footer">
+
+        <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span> <b>Margarita Rafaeli</b>
+        <img src="{{URL::asset('assets/img/laravel-logo.png')}}" height="35px" alt="">
+        <img src="{{URL::asset('assets/img/angular-logo.png')}}" height="35px" alt="">
+        <img src="{{URL::asset('assets/img/bootstrap-logo.png')}}" height="35px" alt="">
 
     </div>
 </div>
