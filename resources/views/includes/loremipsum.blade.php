@@ -17,11 +17,16 @@
     </div>
 </div>
 
-<div ng-show="paragraphs" class="panel-group panel-default">
+<div ng-show="paragraphs" class="panel-group panel-info">
     <div class="panel-heading">Paragraphs</div>
     <div class="panel-body">
+        <form role="form" ng-submit="downloadLipsumParagraphs()">
+            <button type='submit' class="btn">
+                <span class="glyphicon glyphicon-save-file"></span> CSV
+            </button>
+        </form>
         <div ng-repeat="paragraph in paragraphs">
-            <p>@{{ paragraph }}</p>
+            <p>@{{ paragraph.paragraph }}</p>
         </div>
     </div>
 </div>

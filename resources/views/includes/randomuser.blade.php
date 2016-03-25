@@ -33,32 +33,35 @@
 </div>
 
 
-
-<div ng-show="users != null"> <!--users != null-->
-    <form role="form" ng-submit="downloadRandomUsers()">
-        <button type='submit' class="btn">Download CSV</button>
-    </form>
-</div>
-
-<div ng-repeat="user in users">
-    <!--<div class="table-responsive">-->
-        <table class="table table-hover" width="300">
-            <tr>
-                <td>Name</td>
-                <td>@{{ user.name }}</td>
-            </tr>
-            <tr ng-show="user.birthday">
-                <td>Birthday</td>
-                <td>@{{ user.birthday }}</td>
-            </tr>
-            <tr ng-show="user.profile">
-                <td>Profile</td>
-                <td>@{{ user.profile }}</td>
-            </tr>
-            <tr ng-show="user.email">
-                <td>Email</td>
-                <td>@{{ user.email }}</td>
-            </tr>
-        </table>
-    <!--</div>-->
+<div ng-show="users" class="panel-group panel-info">
+    <div class="panel-heading">Users</div>
+    <div class="panel-body">
+        <form role="form" ng-submit="downloadRandomUsers()">
+            <button type='submit' class="btn">
+                <span class="glyphicon glyphicon-save-file"></span> CSV
+            </button>
+        </form>
+        <div ng-repeat="user in users">
+            <!--<div class="table-responsive">-->
+                <table class="table table-hover" width="300">
+                    <tr>
+                        <td>Name</td>
+                        <td>@{{ user.name }}</td>
+                    </tr>
+                    <tr ng-show="user.birthday">
+                        <td>Birthday</td>
+                        <td>@{{ user.birthday }}</td>
+                    </tr>
+                    <tr ng-show="user.profile">
+                        <td>Profile</td>
+                        <td>@{{ user.profile }}</td>
+                    </tr>
+                    <tr ng-show="user.email">
+                        <td>Email</td>
+                        <td>@{{ user.email }}</td>
+                    </tr>
+                </table>
+            <!--</div>-->
+        </div>
+    </div>
 </div>

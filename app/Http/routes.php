@@ -7,6 +7,7 @@ Route::get('/', ['as' => 'home',
 
 Route::get('loremipsum', 'LoremIpsumController@getText');
 Route::post('loremipsum/post', 'LoremIpsumController@postFormInput');
+Route::post('loremipsum/download', 'LoremIpsumController@download');
 
 Route::get('randomuser', 'RandomUserController@getUser');
 Route::post('randomuser/post', 'RandomUserController@postFormInput');

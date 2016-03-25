@@ -6,7 +6,7 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
     $scope.num = 3; //number of randomusers to generate, default set to 3
     $scope.errors; //error response from random user post requests
     $scope.errorsLipsum; //error response from lipsum post requests
-    $scope.paragraphs = ""; //loremipsum text to be displayed
+    $scope.paragraphs; //loremipsum json
     $scope.users; //randomuser json
 
     //sends post request to the loremipsum route
@@ -17,17 +17,35 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
             })
             .success(function(response) {
                 $scope.paragraphs = response;
-                //console.log("success: " + $scope.paragraphs);
             }).error(function(response) {
                 $scope.errorsLipsum = response;
-                //console.log("failed: " + $scope.errors);
             }
         );
     }
 
+    //sends post request to generate and download xls for lipsum paragraphs
+    $scope.downloadLipsumParagraphs = function() {
+        $http({
+            url: 'loremipsum/download',
+            method: 'POST',
+            responseType: 'arraybuffer',
+            data: {
+                paragraphs: $scope.paragraphs
+            },
+            headers: {
+                'Content-type': 'application/json',
+            }
+        }).success(function(data){
+            var blob = new Blob([data], {
+                type: "text/csv;charset=utf-8;"
+            });
+            saveAs(blob, 'LipsumParagraphs' + '.csv');
+        }).error(function(response){
+        });
+    }
+
     //sends post request to generate and download xls for random users
     $scope.downloadRandomUsers = function() {
-        $scope.errorsDownload = "";
         $http({
             url: 'randomuser/download',
             method: 'POST',
@@ -37,24 +55,18 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
             },
             headers: {
                 'Content-type': 'application/json',
-                //'Accept': 'text/csv;charset=utf-8'
-                //'Accept': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
             }
         }).success(function(data){
-            console.log("success: " + data);
             var blob = new Blob([data], {
                 type: "text/csv;charset=utf-8;"
             });
-            console.log(blob);
             saveAs(blob, 'RandomUsers' + '.csv');
         }).error(function(){
-            //Some error log
         });
     }
 
     //sends post request to the randomuser route
     $scope.generateUsers = function(){
-        console.log('generate users');
         $scope.errors = "";
         $http.post('randomuser/post', {
                 num : $scope.num,
@@ -64,12 +76,9 @@ myApp.controller('mainController', ['$scope', '$location', '$log', '$routeParams
             })
             .success(function(response) {
                 $scope.users = response;
-                console.log("success: " + $scope.users);
-                console.log("response: " + response);
 
             }).error(function(response) {
                 $scope.errors = response;
-                console.log("failed: " + $scope.errors);
             }
         );
     }
