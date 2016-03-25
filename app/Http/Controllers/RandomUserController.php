@@ -63,9 +63,9 @@ class RandomUserController extends Controller
     public function download(Request $request){
 
         //form validation on request object
-       /* $this->validate($request, [
+        $this->validate($request, [
             'users' => 'required',
-        ]);*/
+        ]);
 
         $users= $request->input('users');
 
@@ -76,21 +76,8 @@ class RandomUserController extends Controller
 
             $excel->sheet('Users', function($sheet) use($users) {
                 $sheet->fromArray($users);
-                /*$data = array(
-                    array('Name', 'Birthday','Profile','Email'),
-                    array('data1', 'data2', 'data3', 'data4'),
-                    array('data1', 'data2', 'data3', 'data4'),
-                    array('data1', 'data2', 'data3', 'data4'),
-                    array('data1', 'data2', 'data3', 'data4'),
-                    array('data1', 'data2', 'data3', 'data4')
-                );
-                $sheet->fromArray($data, null, 'A1', false, false);
-                $sheet->cells('A1:D1', function($cells) {
-                    $cells->setBackground('#AAAAFF');
-
-                });*/
             });
-        })->download('xlsx');
+        })->download('csv');
 
     }
 }

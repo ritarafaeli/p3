@@ -34,10 +34,9 @@
 
 
 
-<div ng-show="false"> <!--users != null-->
+<div ng-show="users != null"> <!--users != null-->
     <form role="form" ng-submit="downloadRandomUsers()">
-        <input type="hidden" value="@{{ $scope.users }}">
-        <button type='submit' class="btn">Download XLS</button>
+        <button type='submit' class="btn">Download CSV</button>
     </form>
 </div>
 

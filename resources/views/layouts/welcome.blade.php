@@ -3,6 +3,7 @@
 <head>
     <title>Margarita Rafaeli - Developer's Best Friend</title>
     <link rel="stylesheet" href="{{URL::asset('assets/css/main.css')}}">
+    <script src="{{URL::asset('assets/js/FileSaver.js')}}"></script>
     <!--AngularJS-->
     @extends('angular')
     <!-- bootstrap -->
