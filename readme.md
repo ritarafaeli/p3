@@ -14,4 +14,7 @@ TBU
 * [Laravel 5](https://laravel.com/)
 * [AngularJS](https://angularjs.org/)
 * [Bootstrap](http://getbootstrap.com/)
-* [Lorem Ipsum Generator](https://github.com/magyarjeti/laravel-lipsum)
+* [magyarjeti/laravel-lipsum](https://github.com/magyarjeti/laravel-lipsum) Generate lipsum paragraphs
+* [fzaninotto/faker](https://github.com/fzaninotto/Faker) Generate fake user data
+* [maatwebsite/excel](https://github.com/Maatwebsite/Laravel-Excel) Download data to CSV
+* [FileSaver.js](https://github.com/eligrey/FileSaver.js/) Save blob as readable file
