@@ -9,10 +9,11 @@
             <input type='hidden' name='_token' value='{{ csrf_token() }}'>
             <div class='form-group has-error' ng-class="$errorsLipsum.numParagraphs[0] != '' ? 'has-error' : 'has-error'">
                 <label>Number of Paragraphs:</label>
-                <input type='text' name='numParagraphs' ng-model="numParagraphs"/>
+                <input type='number' name='numParagraphs' ng-model="numParagraphs"/>
+                <div class='error' ng-show="numParagraphs < 1 || numParagraphs > 100">Number of paragraphs must be between 1 and 100.</div>
                 <div class='error'>@{{ errorsLipsum.numParagraphs[0] }}</div>
             </div>
-            <button type='submit' class="btn btn-primary">Generate</button>
+            <button type='submit' class="btn btn-primary" ng-disabled="numParagraphs < 1 || numParagraphs > 100">Generate</button>
         </form>
     </div>
 </div>

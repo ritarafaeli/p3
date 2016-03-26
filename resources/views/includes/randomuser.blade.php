@@ -11,6 +11,7 @@
                 <label>Number of Users:</label>
                 <input type='number' ng-model='num'>
                 <div class='error'>@{{ errors.num[0] }}</div>
+                <div class='error' ng-show="num < 1 || num > 500">Number of users must be between 1 and 500.</div>
             </div>
             <div class='form-group'>
                 <label>Birthday:
@@ -27,7 +28,7 @@
                     <input type='checkbox' ng-model='email'>
                 </label>
             </div>
-            <button type='submit' class="btn btn-primary">Generate</button>
+            <button type='submit' class="btn btn-primary" ng-disabled="num < 1 || num > 500">Generate</button>
         </form>
     </div>
 </div>
