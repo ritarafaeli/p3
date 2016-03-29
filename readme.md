@@ -5,7 +5,7 @@
 Developer's Best Friend(Project 3) is a web app using Laravel 5.2 PHP Framework and AngularJS. The application includes a Lorem Ipsum Generator and a Random User Generator.
 
 ##Demo
-TBU
+[screencast](http://www.screencast.com/t/lR1SH9w8tmm)
 
 ##Details
 * __p3\app\Http\Controllers\LoremIpsumController.php__
@@ -24,7 +24,7 @@ TBU
   * __$scope.tab__ Keeps track of the tab the user is one (initial is set to 0 for main page)
   * __$scope.errors__ Error response from randomuser/post request
   * __$scope.errorsLipsum__ Error response from loremipsum/post request
-* _p3\resources\views\includes\randomuser.blade.php__
+* __p3\resources\views\includes\randomuser.blade.php__
   * Displays user form. Once user form is submitted and there are no errors, the data requested is displayed and as an added feature, the user can download the data as a CSV
 * __p3\resources\views\includes\loremipsum.blade.php__
   * Displays user form. Once user form is submitted and there are no errors, the data requested is displayed and as an added feature, the user can download the data as a CSV
